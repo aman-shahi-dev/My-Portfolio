@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=LXGW+WenKai+Mono+TC&family=Manrope:wght@200..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nabla&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-inter: "Inter";
@@ -13,32 +15,31 @@
     #dddddd 3.8px,
     #b4b4b4 1px
   );
-  /*--background-image-honeycomb:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0%,
-      transparent 25%,
-      #000000 25%,
-      #000000 27%,
-      transparent 27%,
-      transparent 50%
-    ),
-    repeating-linear-gradient(
-      60deg,
-      transparent 0%,
-      transparent 25%,
-      #000000 25%,
-      #000000 27%,
-      transparent 27%,
-      transparent 50%
-    ),
-    repeating-linear-gradient(
-      120deg,
-      transparent 0%,
-      transparent 25%,
-      #000000 25%,
-      #000000 27%,
-      transparent 27%,
-      transparent 50%
-    );*/
+  --background-image-hatch-dark: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent,
+    #2a2a2a 3.8px,
+    #1a1a1a 1px
+  );
+}
+
+/*
+  Global theme transition: ensures ALL elements smoothly animate
+  color-related properties when dark mode toggles.
+  :where() gives 0 specificity so any Tailwind transition class
+  on an element naturally overrides this baseline.
+*/
+:where(*, *::before, *::after) {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.dark {
+  color-scheme: dark;
 }

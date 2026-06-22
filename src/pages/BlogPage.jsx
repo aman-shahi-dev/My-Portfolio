@@ -17,7 +17,7 @@ export const BlogPage = () => {
       <h1 className="text-center text-xl font-semibold text-wrap md:text-4xl">
         {blog.title}
       </h1>
-      <h2 className="rounded-full border border-neutral-200 bg-neutral-300 px-4 py-1 text-xs text-neutral-800 shadow-sm md:text-sm">
+      <h2 className="rounded-full border border-neutral-200 bg-neutral-300 px-4 py-1 text-xs text-neutral-800 shadow-sm md:text-sm dark:border-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
         {blog.datePublished}
       </h2>
       <h2 className="w-full text-center text-sm text-wrap md:text-lg">
