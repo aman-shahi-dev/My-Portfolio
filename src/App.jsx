@@ -2,7 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Projects } from "./pages/Projects";
 import { Blogs } from "./pages/Blogs";
-import { BlogPage } from "./pages/BlogPage";
+
 import { Contact } from "./pages/Contact";
 import { Container } from "./components/Container";
 import { Navbar } from "./components/Navbar";
@@ -23,14 +23,14 @@ export const App = () => {
           CURL={1.5}
           TRANSPARENT={true}
         />
-        <div className="bg-hatch font-inter bg-fixed text-black transition-colors duration-300 dark:bg-hatch-dark dark:text-neutral-100">
+        <div className="bg-hatch font-inter dark:bg-hatch-dark bg-fixed text-black transition-colors duration-300 dark:text-neutral-100">
           <Navbar />
           <Container>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blogs/:slug" element={<BlogPage />} />
+
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </Container>

@@ -2,16 +2,16 @@ import { IconBrandGithubFilled, IconExternalLink } from "@tabler/icons-react";
 
 export const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-hatch flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:bg-hatch-dark dark:border-neutral-700">
+    <div className="bg-hatch dark:bg-hatch-dark flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:border-neutral-700">
       <div
         style={{
           backgroundImage: `url(./card-bg-${project.number}.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className={`group flex h-40 w-full items-end justify-center overflow-hidden rounded-md rounded-b-none border-2 border-neutral-300 transition duration-300 md:h-50 md:grayscale-100 md:hover:grayscale-0 dark:border-neutral-600`}
+        className={`group flex h-40 w-full items-end justify-center overflow-hidden rounded-md rounded-b-none border-2 border-neutral-300 transition-[filter] duration-500 ease-in-out will-change-[filter] md:h-50 md:grayscale-100 md:hover:grayscale-0 dark:border-neutral-600`}
       >
-        <div className="h-3/4 w-3/4 rounded-lg rounded-b-none border-2 border-b-0 border-neutral-300 object-cover object-center transition duration-300 group-hover:scale-110 md:border-3 md:border-b-0 dark:border-neutral-600">
+        <div className="h-3/4 w-3/4 rounded-lg rounded-b-none border-2 border-b-0 border-neutral-300 object-cover object-center transition-transform duration-500 ease-in-out will-change-transform group-hover:scale-110 md:border-3 md:border-b-0 dark:border-neutral-600">
           <img
             src={project.img}
             alt=""

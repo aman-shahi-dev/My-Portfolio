@@ -11,15 +11,28 @@ import { ProjectCard } from "../components/ProjectCard";
 import { Link } from "react-router-dom";
 import useScrollToTop from "../hooks/useScrollToTop";
 import { BlogCard } from "../components/BlogCard";
-import { homeBlogs } from "../constants/homeBlogs";
+import { useState, useEffect } from "react";
 import { DividingLine } from "../components/DividingLine";
 
 export const Home = () => {
-  const sortedBlogs = [...homeBlogs].sort((a, b) => {
-    return (
-      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
-    );
-  });
+  const [homeBlogs, setHomeBlogs] = useState([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(
+      "https://medium-blogs-retriever-api.onrender.com/api/posts/amanshahidev",
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const posts = data.data.posts ?? [];
+        setHomeBlogs(posts.slice(0, 4));
+        setBlogsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setBlogsLoading(false);
+      });
+  }, []);
   // useScrollToTop();
   return (
     <div className="flex h-full flex-1 flex-col">
@@ -100,9 +113,13 @@ export const Home = () => {
         <div className="flex w-full flex-col items-start justify-start p-2">
           <Heading className="mb-4 px-4 py-1 text-shadow-lg">Blogs</Heading>
           <div className="flex w-full flex-col gap-6">
-            {sortedBlogs.map((blog, idx) => (
-              <BlogCard blog={blog} key={idx || blog.title} />
-            ))}
+            {blogsLoading ? (
+              <p className="w-full text-center text-xl">Loading...</p>
+            ) : (
+              homeBlogs.map((blog, idx) => (
+                <BlogCard blog={blog} index={idx} key={blog.title || idx} />
+              ))
+            )}
           </div>
           <Link
             to="/blogs"

@@ -1,5 +1,15 @@
 export const allProjects = [
   {
+    title: "Medium Blogs Retriever",
+    img: "./medium-blogs-retriever-api-home.png",
+    description:
+      "A full-stack app with a landing page and REST API to fetch any Medium user's blog posts.",
+    liveLink: "https://medium-blogs-retriever-api.onrender.com/",
+    githubRepoLink:
+      "https://github.com/aman-shahi-dev/medium-blogs-retriever-api",
+    number: 1,
+  },
+  {
     title: "CodeStats",
     img: "./codestats-image.png",
     description:

@@ -1,13 +1,28 @@
 import useScrollToTop from "../hooks/useScrollToTop";
-import { allBlogs } from "../constants/allBlogs";
 import { BlogCard } from "../components/BlogCard";
+import { useState, useEffect } from "react";
+
 export const Blogs = () => {
   useScrollToTop();
-  const sortedBlogs = [...allBlogs].sort((a, b) => {
-    return (
-      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
-    );
-  });
+
+  const [mediumBlogs, setMediumBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(
+      "https://medium-blogs-retriever-api.onrender.com/api/posts/amanshahidev",
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMediumBlogs(data.data.posts ?? []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="flex h-full flex-1 flex-col px-2 py-6">
       <div className="flex w-full flex-col items-start justify-start px-4">
@@ -15,9 +30,13 @@ export const Blogs = () => {
           Blogs
         </h1>
         <div className="flex w-full flex-col gap-6">
-          {sortedBlogs.map((blog, idx) => (
-            <BlogCard blog={blog} key={idx || blog.title} />
-          ))}
+          {loading ? (
+            <p className="w-full text-center text-xl">Loading...</p>
+          ) : (
+            mediumBlogs.map((blog, idx) => (
+              <BlogCard blog={blog} index={idx} key={blog.title || idx} />
+            ))
+          )}
         </div>
       </div>
     </div>
