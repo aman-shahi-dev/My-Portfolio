@@ -2,7 +2,7 @@ import { IconBrandGithubFilled, IconExternalLink } from "@tabler/icons-react";
 
 export const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-hatch dark:bg-hatch-dark flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:border-neutral-700">
+    <div className=" flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:border-neutral-700">
       <div
         style={{
           backgroundImage: `url(./card-bg-${project.number}.jpg)`,

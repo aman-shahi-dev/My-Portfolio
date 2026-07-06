@@ -8,22 +8,23 @@ import { Container } from "./components/Container";
 import { Navbar } from "./components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "./context/ThemeContext";
-import SplashCursor from "./components/SplashCursor";
+import { ParticleBackground } from "./components/ParticleBackground";
 
 export const App = () => {
   return (
     <BrowserRouter>
       <ThemeProvider>
         <Analytics />
-        <SplashCursor
+        <ParticleBackground />
+        {/* <SplashCursor
           SPLAT_RADIUS={0.12}
           SPLAT_FORCE={2000}
           DENSITY_DISSIPATION={6}
           VELOCITY_DISSIPATION={4}
           CURL={1.5}
           TRANSPARENT={true}
-        />
-        <div className="bg-hatch font-inter dark:bg-hatch-dark bg-fixed text-black transition-colors duration-300 dark:text-neutral-100">
+        />*/}
+        <div className="relative z-10 font-inter bg-fixed text-black transition-colors duration-300 dark:text-neutral-100">
           <Navbar />
           <Container>
             <Routes>

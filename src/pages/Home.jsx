@@ -1,3 +1,4 @@
+import { GithubContributions } from "../components/GithubContributions";
 import {
   IconBrandLinkedinFilled,
   IconBrandGithubFilled,
@@ -13,8 +14,10 @@ import useScrollToTop from "../hooks/useScrollToTop";
 import { BlogCard } from "../components/BlogCard";
 import { useState, useEffect } from "react";
 import { DividingLine } from "../components/DividingLine";
+import { useTheme } from "../context/ThemeContext";
 
 export const Home = () => {
+  const { theme } = useTheme();
   const [homeBlogs, setHomeBlogs] = useState([]);
   const [blogsLoading, setBlogsLoading] = useState(true);
 
@@ -129,6 +132,18 @@ export const Home = () => {
           </Link>
         </div>
       </div>
+
+      <DividingLine />
+
+      <div className="px-4 py-2 md:py-6">
+        <div className="flex w-full flex-col items-start justify-start p-2">
+          <Heading className="mb-4 px-4 py-1 text-shadow-lg">
+            GitHub
+          </Heading>
+          <GithubContributions />
+        </div>
+      </div>
+
       {/* CONTACT SECTION */}
       <DividingLine />
       <div className="px-4 py-2 md:py-6">
