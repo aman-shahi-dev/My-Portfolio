@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const BlogCard = ({ blog, index = 0 }) => {
   const bgNumber = (index % 8) + 1;
   return (
-    <div className="bg-hatch dark:bg-hatch-dark flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:border-neutral-700">
+    <div className="flex flex-col items-center justify-start rounded-md border border-neutral-200 p-4 shadow-md transition-colors duration-300 dark:border-neutral-700">
       <div className="relative w-full overflow-hidden rounded-md border border-neutral-200 bg-linear-to-r from-neutral-200 via-neutral-100 to-neutral-200 p-2 backdrop-blur-xl transition-colors duration-300 hover:from-neutral-300 hover:via-neutral-100 hover:to-neutral-300 dark:border-neutral-700 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800 dark:hover:from-neutral-700 dark:hover:via-neutral-800 dark:hover:to-neutral-700">
         <div
           className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-cover bg-center opacity-80 dark:opacity-80"
